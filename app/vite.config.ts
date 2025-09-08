@@ -4,6 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/proformas_system/',
   plugins: [
     react(),
     VitePWA({
@@ -16,7 +17,7 @@ export default defineConfig({
         theme_color: '#1E3A8A',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/',
+        start_url: '/proformas_system/',
         icons: [
           // Usa el ícono existente de Vite como placeholder para evitar errores de imagen
           { src: '/vite.svg', sizes: '192x192', type: 'image/svg+xml' },
