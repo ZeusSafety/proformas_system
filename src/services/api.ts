@@ -2,7 +2,8 @@ import type { Proforma, ProductosPorProforma, Pedido } from '../types';
 
 // Función genérica para cargar JSON
 async function fetchJSON<T>(path: string): Promise<T> {
-  const url = new URL(path.replace(/^\//, ''), import.meta.env.BASE_URL).toString();
+  // Usar ruta relativa para evitar problemas con BASE_URL
+  const url = path.startsWith('/') ? path : `/${path}`;
   const res = await fetch(url);
   
   if (!res.ok) {

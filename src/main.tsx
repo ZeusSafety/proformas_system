@@ -23,7 +23,8 @@ createRoot(rootElement).render(
 // Registrar Service Worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    const swUrl = new URL('firebase-messaging-sw.js', import.meta.env.BASE_URL).toString();
+    // Usar ruta relativa para evitar problemas con BASE_URL
+    const swUrl = '/proformas_system/firebase-messaging-sw.js';
     navigator.serviceWorker.register(swUrl)
       .then((registration) => {
         console.log('SW registered: ', registration);

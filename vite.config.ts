@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['vite.svg', 'robots.txt'],
+      includeAssets: ['vite.svg', 'icons/*'],
       manifest: {
         name: 'Proformas PWA',
         short_name: 'Proformas',
@@ -19,9 +19,10 @@ export default defineConfig({
         display: 'standalone',
         start_url: '/proformas_system/',
         icons: [
-          // Usa el ícono existente de Vite como placeholder para evitar errores de imagen
-          { src: '/vite.svg', sizes: '192x192', type: 'image/svg+xml' },
-          { src: '/vite.svg', sizes: '512x512', type: 'image/svg+xml' },
+          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: '/icons/maskable-192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
+          { src: '/icons/maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       workbox: {
