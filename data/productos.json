@@ -1,0 +1,10 @@
+[
+  { "proformaId": 1, "items": [
+    { "codigo": "P001", "descripcion": "Producto A", "cantidad": 2, "precio": 50 },
+    { "codigo": "P002", "descripcion": "Producto B", "cantidad": 1, "precio": 120 }
+  ]},
+  { "proformaId": 2, "items": [
+    { "codigo": "P003", "descripcion": "Producto C", "cantidad": 5, "precio": 20 }
+  ]}
+]
+
