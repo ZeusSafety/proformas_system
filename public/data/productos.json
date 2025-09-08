@@ -4,7 +4,18 @@
     { "codigo": "P002", "descripcion": "Producto B", "cantidad": 1, "precio": 120 }
   ]},
   { "proformaId": 2, "items": [
-    { "codigo": "P003", "descripcion": "Producto C", "cantidad": 5, "precio": 20 }
+    { "codigo": "P003", "descripcion": "Producto C", "cantidad": 5, "precio": 20 },
+    { "codigo": "P004", "descripcion": "Producto D", "cantidad": 3, "precio": 15 }
+  ]},
+  { "proformaId": 3, "items": [
+    { "codigo": "P005", "descripcion": "Producto E", "cantidad": 10, "precio": 8 }
+  ]},
+  { "proformaId": 4, "items": [
+    { "codigo": "P006", "descripcion": "Producto F", "cantidad": 1, "precio": 499 }
+  ]},
+  { "proformaId": 5, "items": [
+    { "codigo": "P007", "descripcion": "Producto G", "cantidad": 7, "precio": 30 },
+    { "codigo": "P008", "descripcion": "Producto H", "cantidad": 2, "precio": 75 }
   ]}
 ]
 

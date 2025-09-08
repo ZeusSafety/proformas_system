@@ -1,5 +1,8 @@
 [
   { "id": 1, "n": "PF-0001", "cliente": "ACME S.A.", "fecha": "2025-01-10", "entrega": "SI" },
-  { "id": 2, "n": "PF-0002", "cliente": "Globex", "fecha": "2025-01-12", "entrega": "NO" }
+  { "id": 2, "n": "PF-0002", "cliente": "Globex", "fecha": "2025-01-12", "entrega": "NO" },
+  { "id": 3, "n": "PF-0003", "cliente": "Initech", "fecha": "2025-02-02", "entrega": "REPROGRAMADO" },
+  { "id": 4, "n": "PF-0004", "cliente": "Soylent Corp", "fecha": "2025-02-15", "entrega": "CANCELADO" },
+  { "id": 5, "n": "PF-0005", "cliente": "Umbrella", "fecha": "2025-02-20", "entrega": "SI" }
 ]
 
