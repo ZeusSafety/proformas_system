@@ -19,47 +19,52 @@ El error `Failed to load module script: Expected a JavaScript-or-Wasm module scr
 ### 3. `index.html`
 - Ruta corregida para el script principal
 
-### 4. GitHub Actions Workflow (`.github/workflows/deploy.yml`)
-- Despliegue automático en cada push a main
-- Build optimizado para producción
+### 4. Scripts de Despliegue
+- `deploy.bat` - Script para Windows
+- `deploy.sh` - Script para Linux/Mac
 
 ## Pasos para Desplegar
 
-### Opción 1: Despliegue Automático (Recomendado)
+### Método 1: Usando Scripts (Recomendado)
 
-1. **Habilitar GitHub Pages:**
-   - Ve a Settings > Pages en tu repositorio
-   - Source: "GitHub Actions"
+#### En Windows:
+```bash
+deploy.bat
+```
 
-2. **Hacer push de los cambios:**
-   ```bash
-   git add .
-   git commit -m "Fix GitHub Pages MIME type issue"
-   git push origin main
-   ```
+#### En Linux/Mac:
+```bash
+chmod +x deploy.sh
+./deploy.sh
+```
 
-3. **El workflow se ejecutará automáticamente** y desplegará la aplicación.
-
-### Opción 2: Despliegue Manual
+### Método 2: Manual
 
 1. **Build local:**
    ```bash
    npm run build:gh-pages
    ```
 
-2. **Subir carpeta `dist/` a GitHub Pages:**
-   - Ve a Settings > Pages
-   - Source: "Deploy from a branch"
-   - Branch: "gh-pages" (crear si no existe)
-   - Folder: "/ (root)"
+2. **Subir archivos a GitHub:**
+   - Copia todo el contenido de la carpeta `dist/` a la raíz de tu repositorio
+   - Haz commit y push:
+   ```bash
+   git add .
+   git commit -m "Deploy to GitHub Pages"
+   git push origin main
+   ```
 
-3. **Copiar contenido de `dist/` a la rama `gh-pages`**
+3. **Configurar GitHub Pages:**
+   - Ve a Settings > Pages en tu repositorio
+   - Source: "Deploy from a branch"
+   - Branch: "main"
+   - Folder: "/ (root)"
 
 ## Configuración de GitHub Pages
 
 ### En Settings > Pages:
-- **Source:** GitHub Actions (recomendado) o Deploy from a branch
-- **Branch:** main (para Actions) o gh-pages (para branch)
+- **Source:** Deploy from a branch
+- **Branch:** main
 - **Folder:** / (root)
 
 ### Verificar que funcione:
@@ -76,19 +81,20 @@ El error `Failed to load module script: Expected a JavaScript-or-Wasm module scr
 
 ### Si los archivos no se actualizan:
 1. Verifica que el build se haya ejecutado correctamente
-2. Revisa los logs del workflow en Actions
+2. Asegúrate de que los archivos de `dist/` estén en la raíz del repositorio
 3. Espera unos minutos para que GitHub Pages actualice
 
 ## Archivos Importantes
 
 - `public/.htaccess` - Configuración de tipos MIME
 - `vite.config.ts` - Configuración de build
-- `.github/workflows/deploy.yml` - Despliegue automático
+- `deploy.bat` / `deploy.sh` - Scripts de despliegue
 - `public/_headers` - Headers adicionales (para referencia)
 
 ## Notas Técnicas
 
-- GitHub Pages sirve archivos estáticos desde la carpeta `dist/`
+- GitHub Pages sirve archivos estáticos desde la raíz del repositorio
 - Los tipos MIME se configuran via `.htaccess` (aunque GitHub Pages tiene limitaciones)
 - El Service Worker requiere headers específicos para funcionar correctamente
 - La configuración de `base: '/proformas_system/'` es crucial para las rutas
+- Los archivos de `dist/` deben copiarse a la raíz del repositorio para el despliegue
