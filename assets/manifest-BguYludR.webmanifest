@@ -1,0 +1,16 @@
+{
+  "name": "Proformas PWA",
+  "short_name": "Proformas",
+  "description": "Gestión de proformas con soporte offline",
+  "start_url": "/proformas_system/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1E3A8A",
+  "icons": [
+    { "src": "/proformas_system/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/proformas_system/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/proformas_system/icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/proformas_system/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
+
