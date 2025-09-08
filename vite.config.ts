@@ -5,6 +5,17 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vite.dev/config/
 export default defineConfig({
   base: '/proformas_system/',
+  build: {
+    // Cache busting agresivo
+    rollupOptions: {
+      output: {
+        // Forzar nuevos nombres de archivo en cada build
+        entryFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
+        chunkFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
+        assetFileNames: `assets/[name]-[hash]-${Date.now()}.[ext]`
+      }
+    }
+  },
   plugins: [
     react(),
     VitePWA({

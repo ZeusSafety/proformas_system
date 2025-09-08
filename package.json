@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "npm run build && echo 'Build completado. Sube la carpeta dist/ a tu servidor.'",
-    "clean": "rm -rf dist node_modules/.vite"
+    "clean": "if exist dist rmdir /s /q dist && if exist node_modules\\.vite rmdir /s /q node_modules\\.vite"
   },
   "dependencies": {
     "firebase": "^12.2.1",
