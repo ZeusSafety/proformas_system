@@ -41,6 +41,32 @@ export function Layout({ children }: LayoutProps) {
         </div>
       </header>
       
+      {/* Navegación principal */}
+      <nav className="border-b border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/30 backdrop-blur">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex space-x-8">
+            <Link 
+              to="/proformas" 
+              className="py-4 px-2 border-b-2 border-transparent hover:border-[--color-primary] transition-colors font-medium text-gray-700 dark:text-gray-300 hover:text-[--color-primary]"
+            >
+              Proformas
+            </Link>
+            <Link 
+              to="/estadisticas" 
+              className="py-4 px-2 border-b-2 border-transparent hover:border-[--color-primary] transition-colors font-medium text-gray-700 dark:text-gray-300 hover:text-[--color-primary]"
+            >
+              Estadísticas
+            </Link>
+            <Link 
+              to="/productos" 
+              className="py-4 px-2 border-b-2 border-transparent hover:border-[--color-primary] transition-colors font-medium text-gray-700 dark:text-gray-300 hover:text-[--color-primary]"
+            >
+              Productos
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-6">
         <div className="grid gap-6">
           {children}
@@ -48,7 +74,7 @@ export function Layout({ children }: LayoutProps) {
       </main>
       
       <footer className="border-t border-black/10 dark:border-white/10 text-center py-4 text-sm text-gray-600 dark:text-gray-400">
-        © 2025 Tu Empresa
+        © 2025 Business Import Zeus
       </footer>
     </div>
   );

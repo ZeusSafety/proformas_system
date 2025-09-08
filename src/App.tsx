@@ -9,6 +9,8 @@ import { ProformasListPage } from './pages/ProformasListPage';
 import { ProformaDetailPage } from './pages/ProformaDetailPage';
 import { NewProformaPage } from './pages/NewProformaPage';
 import { PedidosPage } from './pages/PedidosPage';
+import { EstadisticasPage } from './pages/EstadisticasPage';
+import { ProductosPage } from './pages/ProductosPage';
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
           <Route path="/proformas/nueva" element={<Guard><NewProformaPage /></Guard>} />
           <Route path="/proformas/:id" element={<Guard><ProformaDetailPage /></Guard>} />
           <Route path="/pedidos" element={<Guard><PedidosPage /></Guard>} />
+          <Route path="/estadisticas" element={<Guard><EstadisticasPage /></Guard>} />
+          <Route path="/productos" element={<Guard><ProductosPage /></Guard>} />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </Layout>
