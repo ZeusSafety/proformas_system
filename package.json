@@ -1,13 +1,15 @@
 {
   "name": "app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && echo 'Build completado. Sube la carpeta dist/ a tu servidor.'",
+    "clean": "rm -rf dist node_modules/.vite"
   },
   "dependencies": {
     "firebase": "^12.2.1",

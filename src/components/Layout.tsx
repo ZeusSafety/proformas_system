@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 import { useOnline } from '../hooks/useOnline';
+import { forceAppUpdate, checkForUpdates } from '../utils/cacheUtils';
+import { useState, useEffect } from 'react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,6 +11,28 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   const { theme, toggle } = useTheme();
   const online = useOnline();
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+
+  // Verificar actualizaciones periódicamente
+  useEffect(() => {
+    const checkUpdates = async () => {
+      if (online) {
+        const hasUpdate = await checkForUpdates();
+        setUpdateAvailable(hasUpdate);
+      }
+    };
+    
+    checkUpdates();
+    const interval = setInterval(checkUpdates, 30000); // Verificar cada 30 segundos
+    
+    return () => clearInterval(interval);
+  }, [online]);
+
+  const handleForceUpdate = () => {
+    if (confirm('¿Estás seguro de que deseas forzar la actualización? Esto limpiará toda la caché local.')) {
+      forceAppUpdate();
+    }
+  };
 
   return (
     <div className="min-h-full flex flex-col bg-gradient-to-b from-white to-zinc-50 dark:from-black dark:to-zinc-950 text-black dark:text-white">
@@ -30,6 +54,22 @@ export function Layout({ children }: LayoutProps) {
             >
               {online ? 'Online' : 'Offline'}
             </span>
+            {updateAvailable && (
+              <button 
+                onClick={handleForceUpdate}
+                className="text-xs px-2 py-1 rounded-full bg-orange-500/20 text-orange-700 dark:text-orange-300 hover:bg-orange-500/30 transition-colors"
+                title="Nueva versión disponible - Click para actualizar"
+              >
+                🔄 Actualizar
+              </button>
+            )}
+            <button 
+              onClick={handleForceUpdate}
+              className="text-xs px-1 py-1 rounded hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+              title="Forzar actualización (limpiar caché)"
+            >
+              🗑️
+            </button>
             <button 
               onClick={toggle} 
               className="btn p-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
