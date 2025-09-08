@@ -12,7 +12,8 @@ createRoot(document.getElementById('root')!).render(
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/firebase-messaging-sw.js').catch(console.error)
+    const swUrl = new URL('firebase-messaging-sw.js', import.meta.env.BASE_URL).toString()
+    navigator.serviceWorker.register(swUrl).catch(console.error)
   })
 }
 

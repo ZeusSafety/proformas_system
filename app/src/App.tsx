@@ -258,7 +258,7 @@ function PedidosPage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Layout>
         <Routes>
           <Route path="/login" element={<LoginPage />} />

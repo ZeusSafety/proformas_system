@@ -2,7 +2,7 @@
   "name": "Proformas PWA",
   "short_name": "Proformas",
   "description": "Gestión de proformas con soporte offline",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#1E3A8A",
