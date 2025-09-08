@@ -52,7 +52,7 @@ export const setupMobileOptimizations = (): void => {
   preventZoom();
   
   // Mejorar scroll en móviles
-  document.body.style.webkitOverflowScrolling = 'touch';
+  (document.body.style as any).webkitOverflowScrolling = 'touch';
   
   // Prevenir selección de texto accidental
   if (isMobile()) {
@@ -62,8 +62,9 @@ export const setupMobileOptimizations = (): void => {
     // Permitir selección en inputs
     const inputs = document.querySelectorAll('input, textarea');
     inputs.forEach(input => {
-      input.style.webkitUserSelect = 'text';
-      input.style.userSelect = 'text';
+      const inputElement = input as HTMLElement;
+      (inputElement.style as any).webkitUserSelect = 'text';
+      inputElement.style.userSelect = 'text';
     });
   }
   
