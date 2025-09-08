@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <title>Proformas PWA</title>
     <script type="text/javascript">
-      // Redirigir a la página principal y luego a la ruta correcta
-      var pathSegmentsToKeep = 0;
+      // Single Page App para GitHub Pages
+      // Toma la ruta actual y redirige al index.html con la ruta como query parameter
+      var pathSegmentsToKeep = 1; // para /proformas_system/
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +

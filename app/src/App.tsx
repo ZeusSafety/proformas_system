@@ -67,7 +67,7 @@ function LoginPage() {
     Notification.requestPermission().then((res) => {
       if (res === 'granted') requestFcmToken()
     })
-    window.location.href = '/proformas'
+    window.location.href = import.meta.env.BASE_URL + 'proformas'
   }
   return (
     <div className="max-w-sm mx-auto">
@@ -110,7 +110,7 @@ function ProformasListPage() {
           </thead>
           <tbody>
             {rows.map((p) => (
-              <tr key={p.id} className="hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer" onClick={() => (window.location.href = `/proformas/${p.id}`)}>
+              <tr key={p.id} className="hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer" onClick={() => (window.location.href = `${import.meta.env.BASE_URL}proformas/${p.id}`)}>
                 <td className="p-2">{p.n}</td>
                 <td className="p-2">{p.cliente}</td>
                 <td className="p-2">{p.entrega}</td>
