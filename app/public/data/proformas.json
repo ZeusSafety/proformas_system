@@ -1,5 +1,0 @@
-[
-  { "id": 1, "n": "PF-0001", "cliente": "ACME S.A.", "fecha": "2025-01-10", "entrega": "SI" },
-  { "id": 2, "n": "PF-0002", "cliente": "Globex", "fecha": "2025-01-12", "entrega": "NO" }
-]
-
