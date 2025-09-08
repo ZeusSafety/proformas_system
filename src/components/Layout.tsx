@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 import { useOnline } from '../hooks/useOnline';
-import { forceAppUpdate, checkForUpdates } from '../utils/cacheUtils';
-import { nukeAllCaches, debugCacheStatus } from '../utils/devCacheBuster';
+import { checkForUpdates } from '../utils/cacheUtils';
 import { useState, useEffect } from 'react';
 
 interface LayoutProps {
@@ -31,19 +30,8 @@ export function Layout({ children }: LayoutProps) {
 
   const handleForceUpdate = () => {
     if (confirm('¿Estás seguro de que deseas forzar la actualización? Esto limpiará toda la caché local.')) {
-      forceAppUpdate();
+      window.location.reload();
     }
-  };
-
-  const handleNuclearClean = () => {
-    if (confirm('🚨 LIMPIEZA NUCLEAR: Esto eliminará TODA la caché, Service Workers y datos locales. ¿Continuar?')) {
-      nukeAllCaches();
-    }
-  };
-
-  const handleDebugCache = () => {
-    debugCacheStatus();
-    alert('Revisa la consola del navegador (F12) para ver el diagnóstico completo de caché');
   };
 
   return (
@@ -75,27 +63,6 @@ export function Layout({ children }: LayoutProps) {
                 🔄 Actualizar
               </button>
             )}
-            <button 
-              onClick={handleDebugCache}
-              className="text-xs px-1 py-1 rounded hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              title="Diagnosticar estado de caché (F12 → Console)"
-            >
-              🔍
-            </button>
-            <button 
-              onClick={handleForceUpdate}
-              className="text-xs px-1 py-1 rounded hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              title="Forzar actualización (limpiar caché)"
-            >
-              🗑️
-            </button>
-            <button 
-              onClick={handleNuclearClean}
-              className="text-xs px-1 py-1 rounded hover:bg-red-500/20 dark:hover:bg-red-500/20 transition-colors"
-              title="🚨 LIMPIEZA NUCLEAR - Eliminar TODO (usar solo si nada más funciona)"
-            >
-              💥
-            </button>
             <button 
               onClick={toggle} 
               className="btn p-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
