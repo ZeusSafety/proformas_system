@@ -2,8 +2,10 @@ import type { Proforma, ProductosPorProforma, Pedido } from '../types';
 
 // Función genérica para cargar JSON
 async function fetchJSON<T>(path: string): Promise<T> {
-  // Usar ruta relativa para evitar problemas con BASE_URL
-  const url = path.startsWith('/') ? path : `/${path}`;
+  // Construir URL correctamente para GitHub Pages
+  const baseUrl = import.meta.env.BASE_URL || '/proformas_system/';
+  const url = new URL(path, window.location.origin + baseUrl).toString();
+  
   const res = await fetch(url);
   
   if (!res.ok) {

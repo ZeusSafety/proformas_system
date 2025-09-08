@@ -39,7 +39,8 @@ export function NewProformaPage() {
       alert('Proforma guardada exitosamente (mock)');
       
       // Redirigir al listado
-      window.location.href = import.meta.env.BASE_URL + 'proformas';
+      const baseUrl = import.meta.env.BASE_URL || '/proformas_system/';
+      window.location.href = baseUrl + 'proformas';
     } catch (error) {
       alert('Error al guardar la proforma');
     } finally {

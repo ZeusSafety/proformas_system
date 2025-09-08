@@ -26,7 +26,8 @@ export function ProformasListPage() {
   }, []);
 
   const handleProformaClick = (id: number) => {
-    window.location.href = `${import.meta.env.BASE_URL}proformas/${id}`;
+    const baseUrl = import.meta.env.BASE_URL || '/proformas_system/';
+    window.location.href = `${baseUrl}proformas/${id}`;
   };
 
   if (loading) {

@@ -33,7 +33,8 @@ export function LoginPage() {
       }
       
       // Redirigir
-      window.location.href = import.meta.env.BASE_URL + 'proformas';
+      const baseUrl = import.meta.env.BASE_URL || '/proformas_system/';
+      window.location.href = baseUrl + 'proformas';
     } catch (err) {
       setError('Error al iniciar sesión');
     } finally {

@@ -113,7 +113,10 @@ export function PedidosPage() {
             <div className="mt-4 pt-3 border-t border-black/10 dark:border-white/10">
               <button 
                 className="btn btn-primary w-full text-sm"
-                onClick={() => window.location.href = `${import.meta.env.BASE_URL}proformas/${pedido.id}`}
+                onClick={() => {
+                  const baseUrl = import.meta.env.BASE_URL || '/proformas_system/';
+                  window.location.href = `${baseUrl}proformas/${pedido.id}`;
+                }}
               >
                 Ver Detalles
               </button>
