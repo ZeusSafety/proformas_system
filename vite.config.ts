@@ -6,15 +6,24 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   base: '/proformas_system/',
   build: {
-    // Cache busting agresivo
+    // Configuración optimizada para GitHub Pages
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    minify: 'terser',
     rollupOptions: {
       output: {
-        // Forzar nuevos nombres de archivo en cada build
-        entryFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
-        chunkFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
-        assetFileNames: `assets/[name]-[hash]-${Date.now()}.[ext]`
+        // Nombres de archivo más simples para GitHub Pages
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        // Asegurar que los archivos JS tengan extensión .js
+        format: 'es'
       }
-    }
+    },
+    // Configuración específica para GitHub Pages
+    target: 'es2015',
+    cssCodeSplit: true
   },
   plugins: [
     react(),
