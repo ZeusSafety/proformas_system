@@ -82,7 +82,7 @@ function LoginPage() {
   )
 }
 
-function Guard({ children }: { children: JSX.Element }) {
+function Guard({ children }: { children: React.ReactElement }) {
   const isAuthed = localStorage.getItem('auth') === '1'
   if (!isAuthed) return <Navigate to="/login" replace />
   return children
